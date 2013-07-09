@@ -82,13 +82,12 @@ func getTemplates() *template.Template {
 	<div class="wrapper">
 		<h1>Login Required</h1>
 		<form method="GET" action="/oauth2/start">
-		<p>Have a Stuzo.com email address. Sign in with Google</p>
+		<p>{{.SignInMessage}}</p>
 		<button type="submit">Sign In</button>
-		{{.SignInMessage}}
 		</form>
 		{{ if .Htpasswd }}
 		<fieldset>
-			<p>Have you been given credentials from Stuzo? Sign in below.</p>
+			<p>ave you been given credentials from {{.Domain}}? Sign in below.</p>
 			<form method="POST" action="/oauth2/sign_in">
 			<label>Username 
 				<input type="text" name="username" size="30" value="John Doe" onblur="if (this.value == '') {this.value = 'John Doe';}" onfocus="if (this.value == 'John Doe') {this.value = '';}">
