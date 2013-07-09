@@ -209,7 +209,7 @@ func (p *OauthProxy) SignInPage(rw http.ResponseWriter, req *http.Request, code 
 		Htpasswd      bool
 	}{
 		SignInMessage: p.SignInMessage,
-		Domain: 	   p.Domain
+		Domain:        p.Domain,
 		Htpasswd:      p.HtpasswdFile != nil,
 	}
 	templates.ExecuteTemplate(rw, "sign_in.html", t)
