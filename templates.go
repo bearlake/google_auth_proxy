@@ -87,7 +87,7 @@ func getTemplates() *template.Template {
 		</form>
 		{{ if .Htpasswd }}
 		<fieldset>
-			<p>ave you been given credentials from {{.Domain}}? Sign in below.</p>
+			<p>Have you been given credentials from {{.Domain}}? Sign in below.</p>
 			<form method="POST" action="/oauth2/sign_in">
 			<label>Username 
 				<input type="text" name="username" size="30" value="John Doe" onblur="if (this.value == '') {this.value = 'John Doe';}" onfocus="if (this.value == 'John Doe') {this.value = '';}">
