@@ -54,7 +54,7 @@ func getTemplates() *template.Template {
             transition: all 0.15s linear;
         }
         button:hover {
-          background: #6090C4;
+          background: #ff8368;
         }
         label {
             color: #6090c4;
