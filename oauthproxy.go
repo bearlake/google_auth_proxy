@@ -32,7 +32,7 @@ type OauthProxy struct {
 	clientID           string
 	clientSecret       string
 	SignInMessage      string
-	Domain   		   string
+	Domain             string
 	HtpasswdFile       *HtpasswdFile
 	serveMux           *http.ServeMux
 }
@@ -205,7 +205,7 @@ func (p *OauthProxy) SignInPage(rw http.ResponseWriter, req *http.Request, code 
 
 	t := struct {
 		SignInMessage string
-		Domain string
+		Domain        string
 		Htpasswd      bool
 	}{
 		SignInMessage: p.SignInMessage,
