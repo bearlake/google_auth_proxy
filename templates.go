@@ -16,13 +16,14 @@ func getTemplates() *template.Template {
         @import url(http://fonts.googleapis.com/css?family=Roboto:300,400,300italic);
         @import url(http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css);
         body {
-            color: #a2a2a2;
+            color: #565656;
             font-weight: 800;
+            letter-spacing: 1px;
         }
         .wrapper {
             margin: 25px auto;
             padding: 20px;
-            width: 530px;
+            width: 520px;
             position: relative;
             font-family: 'Roboto';
             font-weight: 300;
@@ -35,8 +36,9 @@ func getTemplates() *template.Template {
             padding: 0 0 20px 0;
         }
         p {
-            font-size: 20px;
+            font-size: 19px;
             padding: 0 0 20px 0;
+            line-height: 24px;
         }
         button {
             border: none;
@@ -71,23 +73,27 @@ func getTemplates() *template.Template {
             font-size: 20px;
             font-family: 'Roboto';
             font-style: italic;
+            letter-spacing: 1px;
+            margin-left: 25px;
         }
         input:focus {
             border: none;
             outline: none;
+        }
+        span {
+            text-transform:capitalize;
+        }
+        .google {
+            margin-top: -7px;
         }
     </style>
 </head>
 <body>
 	<div class="wrapper">
 		<h1>Login Required</h1>
-		<form method="GET" action="/oauth2/start">
-		<p>{{.SignInMessage}}</p>
-		<button type="submit">Sign In</button>
-		</form>
 		{{ if .Htpasswd }}
 		<fieldset>
-			<p>Have you been given credentials from {{.Domain}}? Sign in below.</p>
+			<p>Have you been given credentials from <span>{{.Domain}}</span>?</br> Sign in below.</p>
 			<form method="POST" action="/oauth2/sign_in">
 			<label>Username 
 				<input type="text" name="username" size="30" value="John Doe" onblur="if (this.value == '') {this.value = 'John Doe';}" onfocus="if (this.value == 'John Doe') {this.value = '';}">
@@ -102,6 +108,10 @@ func getTemplates() *template.Template {
 			</form>
 		</fieldset>
 		{{ end }}
+        <form method="GET" action="/oauth2/start">
+        <p>Have a <span>{{.Domain}}</span>.com email address? Sign in with Google.</p>
+        <button class="google" type="submit">Sign In</button>
+        </form>
 	</div>
 </body>
 </html>
