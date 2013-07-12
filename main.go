@@ -70,7 +70,7 @@ func main() {
 	oauthproxy.SetRedirectUrl(redirectUrl)
 	if *googleAppsDomain != "" && *authenticatedEmailsFile == "" {
 		oauthproxy.SignInMessage = fmt.Sprintf("Have a %s email address. Sign in with Google", *googleAppsDomain)
-		oauthproxy.Domain = strings.SplitN(fmt.Sprintf(*googleAppsDomain), ".", 1)
+		oauthproxy.Domain = fmt.Sprintf(*googleAppsDomain)
 	}
 	if *htpasswdFile != "" {
 		oauthproxy.HtpasswdFile, err = NewHtpasswdFromFile(*htpasswdFile)
